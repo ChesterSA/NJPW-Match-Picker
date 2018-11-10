@@ -32,10 +32,13 @@ namespace NJPWMatchRecommender
 
         public static List<Match> LoadMatches()
         {
-            StreamReader reader = new StreamReader("NJPW.csv");
+            string filepath = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
+            filepath = Directory.GetParent(filepath).FullName;
+            filepath = Directory.GetParent(filepath).FullName;
+
+            StreamReader reader = new StreamReader(filepath + "/NJPW.csv");
             List<Match> matches = new List<Match>();
             string[] match;
-
 
             while (!reader.EndOfStream)
             {
